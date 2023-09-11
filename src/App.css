@@ -1,38 +1,315 @@
-.App {
-  text-align: center;
+.container {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 0.2rem;
+  height: max-content;
+  border: 1px solid black;
+  padding: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.label {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  margin-bottom: 5px;
+  text-align: left;
+  color: var(--primary-color);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 97%;
 }
+.dropdown-input {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-size: medium;
+  background-color: #f8fbff;
+}
+.inputForm {
+  width: 97%;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  display: flex;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  flex-direction: column;
+}
+.inputFormDOB {
+  display: flex;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  flex-direction: column;
+}
+.section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.input {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-size: medium;
+  background-color: #f8fbff;
+}
+.icon {
+  position: absolute;
+}
+.button {
+  width: 16rem;
+  min-width: min-content;
+  height: 4rem;
+  margin-bottom: 5px;
+  border-radius: 13px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--primary-color);
+  background-color: #f8fbff;
+  border: none;
+}
+
+@media (max-width: 1100px) {
+  .subContainer {
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+}
+.legend {
+  text-align: center;
+  font-weight: 700;
+  font-size: xx-large;
+  margin-bottom: 10px;
+}
+
+/* ////////////////////////////////////////////////// *
+/
+/* Styling for the calendar container with increased specificity */
+
+/* Styling for the selected date with increased specificity */
+.react-datepicker__portal .react-datepicker__day--selected {
+  background-color: green !important; /* Change the background color to green for selected dates */
+  color: white !important; /* Set the text color to white for selected dates */
+  transition: background-color 0.3s ease-in-out; /* Add a transition effect for background color */
+}
+
+/* Add a hover effect with a delay to selected dates with increased specificity */
+.react-datepicker__portal .react-datepicker__day--selected:hover {
+  background-color: red !important; /* Change the background color on hover */
+  transition-delay: 0.5s; /* Add a delay of 0.5 seconds on hover */
+}
+.react-datepicker__month-container {
+  border-radius: 8px; /* Add rounded corners to the calendar container */
+  background-color: var(
+    --primary-color
+  ); /* Set the background color of the calendar container */
+  color: white !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+.react-datepicker__day-names {
+  color: white !important;
+  background-color: var(--primary-color);
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  background-color: var(--primary-color);
+}
+.react-datepicker {
+  background-color: var(--primary-color);
+}
+.react-datepicker__day {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.react-datepicker__day-name {
+  color: white;
+}
+.react-datepicker__current-month {
+  color: white !important;
+  padding-bottom: 5px;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: #346bd1;
+}
+.react-datepicker__input-container .react-datepicker__calendar-icon {
+  position: absolute;
+  bottom: 25%;
+  right: 10%;
+}
+.react-datepicker__header {
+  text-align: center;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #aeaeae;
+  border-top-left-radius: 16.3rem;
+  padding: 0px 0;
+  position: relative;
+}
+.react-datepicker__view-calendar-icon input {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-size: medium;
+  background-color: #f8fbff;
+}
+/* /////////////// */
+/* Styling for the dropdown input container */
+/* Styling for the dropdown input container */
+.input-container {
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styling for the label */
+.input-label {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 900;
+  height: 1rem;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+/* Styling for the custom dropdown container */
+.custom-dropdown {
+  position: relative;
+  width: 99%;
+  background-color: #f8fbff;
+  border-radius: 1rem;
+  overflow: hidden; /* Hide the native dropdown arrow */
+}
+
+/* Styling for the dropdown input */
+.dropdown-input {
+  width: 100%;
+  padding: 1rem;
+
+  border: none;
+  outline: none;
+  font-size: medium;
+  background-color: transparent;
+  appearance: none; /* Hide the native dropdown arrow in some browsers */
+}
+
+/* Styling for the dropdown list */
+.dropdown-input::-ms-expand {
+  display: none;
+
+  /* Hide the native dropdown arrow in Microsoft Edge */
+}
+
+/* Stylish scrollbar for the dropdown list */
+.custom-dropdown select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-dropdown select::-webkit-scrollbar-track {
+  background-color: #f8fbff;
+  border-radius: 8px;
+}
+
+.custom-dropdown select::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 8px;
+}
+
+.custom-dropdown select::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+/* ///////////////////////////////////////////////////////////////////////////// */
+/* Styling for the text editor toolbar */
+.text-editor {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8fbff;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.text-editor button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+/* Styling for the textarea */
+.description-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+/* ////////////////////// */
+.rich-text-editor {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  margin-bottom: 10px;
+}
+
+.toolbar button {
+  font-weight: bold;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.headline {
+  text-align: left;
+  font-size: xx-large;
+  font-family: ;
+}
+
+.container1 {
+  width: 90%;
+  border: 1px solid gray;
+  margin: 5px auto 5px auto;
+  color: #7e98ba;
+
+  border-radius: 10px;
+  min-height: 50vh;
+}
+table {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+th {
+  width: 30vw;
+  color: #263857;
+  font-weight: 600;
+  padding: 20px;
+
+}
+
+td {
+  border-top: 1px solid black;
+  width: 20vw;
+  text-align: center;
+}
+.description {
+  text-align: left;
+  line-height: 20px;
 }
