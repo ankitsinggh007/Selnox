@@ -1,7 +1,7 @@
 import RegistrationPage from "./RegistrationPage";
-import EmployeeList from "./EmployeeList";
+import EmployeeListing from "./EmployeeList";
 
 export {
     RegistrationPage,
-    EmployeeList
+    EmployeeListing
 }
