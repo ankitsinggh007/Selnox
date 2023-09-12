@@ -19,7 +19,6 @@ const RegistrationPage = ({type,EmployeeList,setEmployeeList}) => {
     "Other",
   ];
   const [employee, setEmployee] = useState({
-    
     DOB: null,
     Study: "",
     StartDate: "",
@@ -30,7 +29,7 @@ const RegistrationPage = ({type,EmployeeList,setEmployeeList}) => {
     FirstName: "",
   });
   const { id } = useParams();
-console.log(id,"id")
+
 const navigate = useNavigate();
   const setValues = (e) => {
     setEmployee({ ...employee, [e.target.name]: e.target.value });
@@ -54,10 +53,10 @@ const navigate = useNavigate();
       const data=EmployeeList.find((obj)=>{
         return obj.id==id
       });
-      setEmployee(data);
+      setEmployee({...data});
      console.log(data,"data"); 
     }
-  })
+  },[]);
   console.log(EmployeeList,"emp")
 
   const addEmployee = async (e) => {
@@ -93,7 +92,9 @@ const navigate = useNavigate();
       throw error; // Rethrow the error for handling at the caller level
     }
   };
-  const updateEmployee=async()=>{
+  const updateEmployee=async(e)=>{
+    e.preventDefault();
+
     try {
       const response = await fetch(`https://sweede.app/DeliveryBoy/update-Employee/${id}`, {
         method: 'PUT', // Use the appropriate HTTP method for updating
@@ -125,6 +126,7 @@ const navigate = useNavigate();
           <input
             type="text"
             className="input"
+            readOnly={type==='View'}
             onChange={setValues}
             value={employee.FirstName}
             name="FirstName"
@@ -137,6 +139,8 @@ const navigate = useNavigate();
             type="text"
             className="input"
             onChange={setValues}
+            readOnly={type==='View'}
+
             value={employee.LastName}
             name="LastName"
             placeholder="Enter your last name"
@@ -150,6 +154,8 @@ const navigate = useNavigate();
           name="DOB"
           setValue={handleDates}
           value={employee.DOB}
+          disabled={type==='View'}
+
           className={"DOB"}
           selected={selectedDate}
           onChange={handleDateChange}
@@ -165,6 +171,8 @@ const navigate = useNavigate();
           <select
             id="study"
             name="Study"
+            disabled={type==='View'}
+
             onChange={setValues}
             class="dropdown-input"
           >
@@ -184,6 +192,7 @@ const navigate = useNavigate();
           label="Start Date"
           name="StartDate"
           setValue={handleDates}
+          disabled={type==='View'}
           value={employee.StartDate}
           className={"section"}
           placeholder="2-6-22"
@@ -193,6 +202,8 @@ const navigate = useNavigate();
           label="End Date"
           className={"section"}
           name="EndDate"
+          disabled={type==='View'}
+
           setValue={handleDates}
           value={employee.EndDate}
           placeholder="7-6-22"
@@ -205,6 +216,8 @@ const navigate = useNavigate();
           type="number"
           className="salary-input"
           onChange={setValues}
+          readOnly={type==='View'}
+
           value={employee.CurrentSalary}
           name="CurrentSalary"
           placeholder="Enter your Current Salary"

@@ -37,6 +37,7 @@ const CustomDatePicker = ({
       <DatePicker
         showIcon
         value={value}
+        disabled={true}
         onChange={handleDateChange}
         name={name}
         dateFormat="MM/dd/yyyy"

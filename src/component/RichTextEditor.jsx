@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Editor, EditorState, RichUtils,ContentState } from 'draft-js';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
 
@@ -8,16 +8,14 @@ const RichTextEditor = ({
     value,
     name
 }) => {
-    const [editorState, setEditorState] = useState(
-        EditorState.createWithContent(ContentState.createFromText(value))
-      );
-      
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const handleEditorChange = (newEditorState) => {
     setEditorState(newEditorState);
-    
-    handleDescription(JSON.stringify(editorState));
-    
+    const contentState = editorState.getCurrentContent();
+    const plainText = contentState.getPlainText();
+    handleDescription(editorState);
+    // console.log(editorState,"editor")
   };
   
 
@@ -68,6 +66,7 @@ const RichTextEditor = ({
         onChange={handleEditorChange}
         className='custom-editor'
         name={name}
+        
         editorClassName='custom-editor-content'
       />
     </div>
