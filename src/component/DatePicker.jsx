@@ -8,6 +8,7 @@ const CustomDatePicker = ({
   className,
   setValue,
   value,
+  disabled,
   name,
 }) => {
   console.log(label, placeholder, "attribute");
@@ -37,7 +38,7 @@ const CustomDatePicker = ({
       <DatePicker
         showIcon
         value={value}
-        disabled={true}
+        disabled={disabled}
         onChange={handleDateChange}
         name={name}
         dateFormat="MM/dd/yyyy"
