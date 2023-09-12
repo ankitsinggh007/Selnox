@@ -14,8 +14,7 @@ const RichTextEditor = ({
     setEditorState(newEditorState);
     const contentState = editorState.getCurrentContent();
     const plainText = contentState.getPlainText();
-    handleDescription(editorState);
-    // console.log(editorState,"editor")
+    handleDescription(plainText);
   };
   
 

@@ -11,7 +11,6 @@ const CustomDatePicker = ({
   disabled,
   name,
 }) => {
-  console.log(label, placeholder, "attribute");
 
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -30,7 +29,6 @@ const CustomDatePicker = ({
     setValue(formattedDate, name);
   };
 
-  console.log(selectedDate, typeof selectedDate, "selectedDate");
 
   return (
     <span className={className}>

@@ -34,7 +34,6 @@ const EmployeeListing = ({EmployeeList,setEmployeeList}) => {
 
   
 
-  console.log(EmployeeList,"EmployeeList")
 
 
   const handleOpenToolbar = (rowId) => {

@@ -38,26 +38,21 @@ const navigate = useNavigate();
     setEmployee({ ...employee, [name]: date });
   };
 
-  console.log(employee, "employee");
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
   const handleDescription = (description) => {
-    console.log(description,"description")
     setEmployee({ ...employee, Description: description });
   };
 
   useEffect(()=>{
     if(type!=="Register"){
-      console.log(EmployeeList,id);
       const data=EmployeeList.find((obj)=>{
         return obj.id==id
       });
       setEmployee({...data});
-     console.log(data,"data"); 
     }
   },[]);
-  console.log(EmployeeList,"emp")
 
   const addEmployee = async (e) => {
     e.preventDefault();
@@ -81,7 +76,6 @@ const navigate = useNavigate();
 
       const data = await response.json();
        // Parse the response JSON
-       console.log(EmployeeList,"emp")
       setEmployeeList([...EmployeeList,employee]);
       navigate("/employee-list",{ replace: true })
       
@@ -119,7 +113,14 @@ const navigate = useNavigate();
 
   return (
     <form className="container" onSubmit={ type==='Register'?addEmployee:updateEmployee}>
+     {
+      type!=="View" && 
       <legend className="legend">Employee {type==='Register'?'Registration':'Update'} Form</legend>
+     }
+     {
+      type=="View" &&
+      <legend className="legend">Employee Details</legend>
+     }
       <div className="subContainer">
         <span className="section">
           <label className="label">First Name*</label>

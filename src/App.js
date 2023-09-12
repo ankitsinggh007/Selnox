@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [EmployeeList, setEmployeeList] = useState([]);
-  console.log(EmployeeList,"EmployeeList");
 
   useEffect(() => {
     // Call the getUser function to fetch user data when the component mounts
